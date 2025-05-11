@@ -1,111 +1,101 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: From Dusk Till Dawn
-email: your_email@example.com # Optional: consider removing if not used, or use a real one
-description: >- # Add a brief description of your project here. This helps with SEO.
-  An interactive data visualization project exploring crime trends.
-# Example: A data story exploring crime trends in San Francisco using interactive visualizations.
+email: your_email@example.com # Optional: use your actual email or remove if not used
+description: >- # Add your project description here
+  An interactive data visualization project exploring crime trends in San Francisco.
 
 # GitHub Pages Project Site Settings (VERY IMPORTANT)
-url: "https://ThomasRoennebek.github.io" # Your GitHub Pages domain (your username)
-baseurl: "/fromdusktilldawn.github.io"   # The name of THIS repository
+# These tell Jekyll how to construct URLs for your site when deployed.
+url: "https://ThomasRoennebek.github.io" # Your GitHub username's Pages domain
+baseurl: "/fromdusktilldawn.github.io"   # The name of THIS repository, preceded by a slash
 
-minimal_mistakes_skin: contrast # Or your preferred skin e.g., default, air, etc.
-search: false # Disable search icon, as per your setting
+# Theme and Skin
+minimal_mistakes_skin: contrast # Or your preferred skin
+remote_theme: mmistakes/minimal-mistakes
+
+# Site Features
+search: false # Disable search icon
 
 # Markdown Processing
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  # Other kramdown options if you need them, but defaults are usually fine.
 
-# Theme
-remote_theme: mmistakes/minimal-mistakes
-
-# Pagination (Only if you plan to have a blog-like section with multiple posts)
+# Permalinks and Pagination (Optional - remove if not needed for a single-page site)
+# permalink: /:categories/:title/ # Default for posts, not usually for single page sites
 # paginate: 5
 # paginate_path: /page:num/
-# If this is a single-page data story, you might not need pagination.
-# If you keep it, ensure the jekyll-paginate plugin is in your Gemfile.
 
-timezone: Europe/Copenhagen
-
-# Collections (Only if you are using Jekyll collections beyond _posts and _pages)
-# collections:
-#   stories: # Example collection
-#     output: true
-#     permalink: /:collection/:name/
+timezone: Europe/Copenhagen # Correct for your location
 
 # Defaults for different content types
 defaults:
   - scope:
-      path: "" # Apply to all files not otherwise specified
+      path: "" # Apply to all files not otherwise specified (e.g., your root index.md if it's not in _pages)
+      type: pages
+    values:
+      layout: single # Assumes your index.md uses this layout
+      author_profile: false
+      classes: wide # Makes content area wider
+  - scope:
+      path: "_pages" # If you have other pages inside a _pages folder
       type: pages
     values:
       layout: single
       author_profile: false
-      classes: wide # Makes content area wider
-  - scope:
-      path: ""
-      type: posts # If you ever add posts
-    values:
-      layout: single
-      author_profile: false
-      read_time: false
-      comments: false
-      share: false
-      related: false
       classes: wide
+  # Remove 'posts' scope if you are not using blog posts
+  # - scope:
+  #     path: ""
+  #     type: posts
+  #   values:
+  #     layout: single
+  #     author_profile: false
+  #     read_time: false
+  #     comments: false
+  #     share: false
+  #     related: false
+  #     classes: wide
 
-# Build settings
-# include and exclude are important for what Jekyll processes
+# Build settings: Folders and files Jekyll should process and copy to _site
 include:
-  - _pages # Where your index.md likely lives if not at root
-  - assets/css # For your custom main.scss
-  - assets/js # If you have custom JavaScript
-  - assets/images # <<< ESSENTIAL: Since your HTML plots are here
-  # - assets/interactives # Remove this if you are NOT using an 'interactives' folder
-  - _data # If you use Jekyll data files
+  - _pages       # If your index.md or other pages are here
+  - assets/css   # For your main.scss
+  - assets/images  # CRITICAL: Since your HTML plots are here
+  - assets/js    # If you have custom JavaScript files
+  - _data        # If you use Jekyll data files
+  # - assets/interactive # REMOVE THIS if you are not using an "interactive" folder
 
+# Files and folders Jekyll should ignore
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  # Add any other files or folders you want Jekyll to ignore
+  - vendor/ # Covers common Bundler paths like vendor/bundle, vendor/cache, etc.
+  - README.md # Usually not needed in the final site output
+  # Add any other files or folders you want Jekyll to ignore like .jekyll-cache, .sass-cache
 
 plugins:
-  - jekyll-paginate # Corresponds to paginate settings above. Remove if not paginating.
+  # - jekyll-paginate # Remove if not using pagination settings above
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
+  - jekyll-feed # Usually for blogs, can be removed if not needed
   - jemoji
   - jekyll-include-cache
 
-# Author info (Optional, can be removed if author_profile is false everywhere)
+# Author info (Optional, remove if author_profile is false everywhere and not used)
 author:
   name   : "Group 47"
   bio    : "Social data analysis and visualization"
-  # avatar : "/assets/images/your-avatar.jpg" # Optional
-  links: []  # Removes sidebar links entirely
+  links: []
 
 # Footer links (Optional)
 footer:
-  links: []  # Removes footer icons
+  links: []
+
+# Collections (Remove if not using custom Jekyll collections)
+# collections:
+#   stories:
+#     output: true
+#     permalink: /:collection/:name/
