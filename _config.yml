@@ -13,72 +13,99 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: From Dusk Till Dawn 
-email: your_email@example.com
-description: >-
-  
-minimal_mistakes_skin: contrast
-search: false  # 🔧 Disable search icon
+title: From Dusk Till Dawn
+email: your_email@example.com # Optional: consider removing if not used, or use a real one
+description: >- # Add a brief description of your project here. This helps with SEO.
+  An interactive data visualization project exploring crime trends.
+# Example: A data story exploring crime trends in San Francisco using interactive visualizations.
 
+# GitHub Pages Project Site Settings (VERY IMPORTANT)
+url: "https://ThomasRoennebek.github.io" # Your GitHub Pages domain (your username)
+baseurl: "/fromdusktilldawn.github.io"   # The name of THIS repository
+
+minimal_mistakes_skin: contrast # Or your preferred skin e.g., default, air, etc.
+search: false # Disable search icon, as per your setting
+
+# Markdown Processing
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  # Other kramdown options if you need them, but defaults are usually fine.
+
+# Theme
 remote_theme: mmistakes/minimal-mistakes
 
-permalink: /:categories/:title/
-paginate: 5
-paginate_path: /page:num/
+# Pagination (Only if you plan to have a blog-like section with multiple posts)
+# paginate: 5
+# paginate_path: /page:num/
+# If this is a single-page data story, you might not need pagination.
+# If you keep it, ensure the jekyll-paginate plugin is in your Gemfile.
+
 timezone: Europe/Copenhagen
 
+# Collections (Only if you are using Jekyll collections beyond _posts and _pages)
+# collections:
+#   stories: # Example collection
+#     output: true
+#     permalink: /:collection/:name/
+
+# Defaults for different content types
+defaults:
+  - scope:
+      path: "" # Apply to all files not otherwise specified
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+      classes: wide # Makes content area wider
+  - scope:
+      path: ""
+      type: posts # If you ever add posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: false
+      share: false
+      related: false
+      classes: wide
+
+# Build settings
+# include and exclude are important for what Jekyll processes
 include:
-  - _pages
-  - assets/js
-  - assets/css
-  - assets/interactive
-  - _data
+  - _pages # Where your index.md likely lives if not at root
+  - assets/css # For your custom main.scss
+  - assets/js # If you have custom JavaScript
+  - assets/images # <<< ESSENTIAL: Since your HTML plots are here
+  # - assets/interactives # Remove this if you are NOT using an 'interactives' folder
+  - _data # If you use Jekyll data files
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # Add any other files or folders you want Jekyll to ignore
 
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate # Corresponds to paginate settings above. Remove if not paginating.
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
 
+# Author info (Optional, can be removed if author_profile is false everywhere)
 author:
   name   : "Group 47"
   bio    : "Social data analysis and visualization"
-  links: []  # 🔧 Removes sidebar links entirely
+  # avatar : "/assets/images/your-avatar.jpg" # Optional
+  links: []  # Removes sidebar links entirely
 
+# Footer links (Optional)
 footer:
-  links: []  # 🔧 Removes footer icons
-
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: false  # 🔧 Hide profile box on posts (even though you're not using posts)
-      read_time: false
-      comments: false
-      share: false
-      related: false
-      classes: wide
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: false  # 🔧 Hide sidebar profile for clean look
-      classes: wide
-
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-
-collections:
-  stories:
-    output: true
-    permalink: /:collection/:name/
+  links: []  # Removes footer icons
