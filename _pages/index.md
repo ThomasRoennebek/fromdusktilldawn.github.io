@@ -31,7 +31,7 @@ This map makes visible what many residents already know: gun violence in New Yor
 From 2011 to 2019 New York City seemed to be winning ground: shootings fell across nearly every borough. Then came 2020. In a single year the number of incidents spiked dramatically, wiping out a decade of progress. Brooklyn and the Bronx shouldered the heaviest burden, a reminder that safety gains remain fragile—especially in communities already hit hardest.
 
 <iframe src="{{ '/assets/images/borough_shootings.html' | relative_url }}" width="100%" height="520" frameborder="0" title="Incident Dashboard"></iframe>
-<figcaption><strong>Figure:</strong> Annual shootings, stacked by borough. The Bronx and Brooklyn still dominate the tally</figcaption>
+<figcaption><strong>Figure:</strong> Annual shootings, stacked by borough. The Bronx and Brooklyn still dominate the tally. Use the Legend to filter or focus on certain boroughs</figcaption>
 
 When observed year after year, the rise and fall of gun violence becomes a citywide pulse. The 2020 spike—nearly doubling citywide shootings and pushing totals to their highest in over a decade—was both statistically and emotionally significant.Brooklyn and the Bronx, already carrying the highest load, absorbed most of the surge, raising urgent questions about why safety gains don’t hold equally—and who is left most exposed when they fail [1].
 
